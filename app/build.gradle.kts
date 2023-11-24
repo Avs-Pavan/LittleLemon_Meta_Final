@@ -1,11 +1,13 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
     namespace = "com.kevin.littlelemon"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.kevin.littlelemon"
@@ -30,11 +32,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -59,6 +61,21 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+
+
+    implementation ("androidx.compose.runtime:runtime-livedata:1.3.2")
+    implementation ("androidx.navigation:navigation-compose:2.5.3")
+    implementation ("androidx.room:room-runtime:2.5.1")
+    implementation ("io.ktor:ktor-client-android:2.1.3")
+    implementation ("io.ktor:ktor-client-content-negotiation:2.1.3")
+    implementation ("io.ktor:ktor-serialization-kotlinx-json:2.1.3")
+    kapt ("androidx.room:room-compiler:2.5.1")
+    testImplementation ("junit:junit:4.13.2")
+    implementation ("com.github.bumptech.glide:compose:1.0.0-alpha.1")
+    
+    
+    
+    
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
